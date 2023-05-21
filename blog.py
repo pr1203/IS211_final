@@ -8,7 +8,7 @@ import sqlite3 as lite
 import datetime
 
 database = 'blog.db'
-username = 'pdelro'
+username = 'pr1203'
 password = 'IS211pw'
 
 app = Flask(__name__)
@@ -85,7 +85,7 @@ def login():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
-    if session['username'] == 'pdelro':
+    if session['username'] == 'pr1203':
         cur = g.db.execute(
             'SELECT title, author, published, content FROM Entries ORDER BY published desc'
             )
@@ -100,7 +100,7 @@ def dashboard():
 @app.route('/edit', methods=['GET', 'POST'])
 def edit_post():
     current_date = datetime.datetime.today()
-    if session['username'] == 'pdelro':
+    if session['username'] == 'pr1203':
         if request.method == 'GET':
             return render_template('edit_post.html')
         elif request.method == 'POST':
@@ -118,7 +118,7 @@ def edit_post():
 def add_post():
     author = username
     current_date = datetime.datetime.today()
-    if session['username'] == 'pdelro':
+    if session['username'] == 'pr1203':
             if request.method == 'GET':
                 return render_template('add_post.html')
             elif request.method == 'POST':
